@@ -1,0 +1,10 @@
+<!-- Enter if messageService.messages.length is valid -->
+<div>
+  <h2>Messages</h2>
+  
+  <button class="clear"
+          (click)="messageService.clear()">clear</button>
+  
+  <!-- message property defined in ts file, aka element of messages array -->
+  <div *ngFor='let message of messageService.messages'> {{message}} </div>
+</div>

@@ -1,0 +1,44 @@
+<!-- List heroes with *ngFor -->
+<h2>My Heroes</h2>
+<ul class="heroes">
+    <!-- The *ngFor is Angular's repeater directive, it repeates the host element for each element in a list -->
+    <!-- <li> is the host element -->
+    <!-- heroes is the list from the HeroesComponent class -->
+    <!-- hero holds the current hero object for each iteration through the list -->
+    <!-- for each hero oject, add event listener (click) = function() Angular's event binding syntax The parentheses around click tell Angular to listen for the <li> element's click event, when the user clicks <li>, Angular executes the onSelect(hero) expression onSelect() is a HeroesComponent user defined method, Angular calls it with the hero object displayed in the clicked <li> -->
+    <!-- turn on / off the selected class css based on if the current hero is the selected hero -->
+    <!-- toogle a CSS style class with a class binding -->
+    <li *ngFor="let hero of heroes">
+        <a routerLink="/detail/{{hero.id}}">
+            <span class="badge">{{hero.id}}</span> {{hero.name}}
+        </a>
+    </li>
+</ul>
+<!-- pipe oeprator (|) is a good way to format strings, currency amounts, dates and other display data -->
+
+<!-- Edit the hero: The textbox for user input should both display the hero's name property and update that property as the user type That means data flow from the component class out to the screen and from the screen back to the class To automate that data flow, setup a two-way binding between the <input> form element and the hero.name property -->
+
+<!-- data binding to hero property -->
+<!-- *ngIf to conditionally include or exclude a block of HTML -->
+<!-- <div *ngIf="selectedHero"> -->
+    <!--When the app starts, the selectedHero is undefined by design -->
+    <!-- Binding expressions in the template that refer to properties of selectedHero must fail because there is no selected hero -->
+    <!-- Fix: the component should only display the selected hero details if the selectedHero exists wrap the hero detail HTML in a <div> and add Angular's *ngIf directive to the <div> and set it to selectedHero -->
+    <!-- Mechanism: when selectedHero is undefined, the ngIf removes the hero detail from the DOM, when the user picks a hero, selectedHero has a value and ngIf puts the hero detail into the DOM -->
+    <!--<h2>{{selectedHero.name | uppercase}} Details</h2> --> <!-- UppercasePipe -->
+    <!-- <div><span>id: </span>{{selectedHero.id}}</div> -->
+    <!-- two-way data binding -->
+    <!-- <div>
+        <label>name: -->
+            <!-- [(ngModel)] is Angular's two-way data binding syntax -->
+            <!-- binds the hero.name property to the HTML textbox so that data flow in both directions: from hero.name property to the textbox, and from the textbox back to the hero.name -->
+            <!-- <input [(ngModel)]="selectedHero.name" placeholder="name">
+        </label>
+    </div>
+</div> -->
+
+<!-- Property binding to give the parent HeroesComponent control over the child HeroDetailComponent -->
+<!-- HeroesComponent is only displaying the heroes with no details but delegate to the child component HeroDetailsComponent by sending it a new hero display whenever the user selects a hero from the list -->
+<!-- [hero]="selectedHero" si an Angular property binding (one way data binding) from the selectedHero Property of the HeroesComponent to the hero property of the target element, which maps to the hero property of the HeroDetailComponent -->
+<<!--app-hero-detail [hero]="selectedHero"></app-hero-detail> -->
+<!-- When teh seletedHero changes, the property binding updates hero and the HeroDetailComponent displays the new hero -->

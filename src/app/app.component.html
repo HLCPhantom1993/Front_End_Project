@@ -1,0 +1,24 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<!-- the component template, written in HTML -->
+
+<h1>
+  <!--{} interpolation binding syntax that presents the component's title property value inside the HTML header tag -->
+  {{ title }}!
+</h1>
+
+<nav>
+  <a routerLink="/dashboard">Dashboard</a>
+  <!-- A routerLink attribute is set to "/heroes", the string that the router matches to the route to HeroesComponent -->
+  <!-- The routerLink is the selector for the RouterLink directive that turns user clicks into router navigations -->
+  <a routerLink="/heroes">Heroes</a>
+</nav>
+
+<!-- tells the router where to display routed views -->
+<router-outlet></router-outlet>
+
+<!-- add to the template of the shell AppComponent to display HeroesComponent view -->
+<!-- all the elements in the sub component namely app-heroes will be displayed in the view -->
+<!-- app-heroes></app-heroes>--> <!-- element selector for HeroesComponent -->
+<!-- display the HeroesComponent when the user navigates to it -->
+<!-- message selector for displaying message each time a hero is successfully fetched -->
+<app-messages></app-messages>
