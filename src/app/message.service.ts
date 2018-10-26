@@ -1,9 +1,11 @@
+/* Message服务将会被注射到HeroService中 */
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MessageService {
+  /* message服务对外暴露了它的messages缓存以及两个方法 */
   /* define message property, which is a string array */
   messages: string[] = [];
 

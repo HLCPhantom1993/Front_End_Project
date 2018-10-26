@@ -1,0 +1,16 @@
+<div id="search-component">
+  <h4>Hero Search</h4>
+
+  <!-- 当用户在搜素框中输入时，一个keyup事件绑定会调用该组件的search（）方法， 并传入新的搜索框的值 -->
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+
+  <ul class="search-result">
+    <!-- heroes$ 命名惯例用来表明heroes是一个Observable而不是数组 -->
+    <!-- *ngFor 不能直接使用Observable，管道字符 + async AsyncPipe会自动订阅到Observable，无需手动订阅 -->
+    <li *ngFor="let hero of heroes$ | async">
+      <a routerLink="/detail/{{hero.id}}">
+        {{hero.name}}
+      </a>
+    </li>
+  </ul>
+</div>
